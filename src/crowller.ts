@@ -30,7 +30,6 @@ class Crowller {
       time: new Date().getTime(),
       data: courseInfos
     };
-    //console.log("22" + JSON.stringify(result, null, 4));
   }
   async getRawHtml() {
     const result = await superagent.get(this.url);
