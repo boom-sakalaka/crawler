@@ -14,6 +14,7 @@ interface Content {
   [propName: number]: Course[];
 }
 export default class DellAnalyzer implements Analyzer {
+  private static intance: DellAnalyzer;
   private getCourseInfo(html: string) {
     const $ = cheerio.load(html);
     const courseItems = $(".course-item");
@@ -51,5 +52,13 @@ export default class DellAnalyzer implements Analyzer {
     const courseInfo = this.getCourseInfo(html);
     const fileContent = this.generateJsonContent(courseInfo, filePath);
     return JSON.stringify(fileContent);
+  }
+
+  private constructor() {}
+  static getInstance(): DellAnalyzer {
+    if (!DellAnalyzer.intance) {
+      DellAnalyzer.intance = new DellAnalyzer();
+    }
+    return DellAnalyzer.intance;
   }
 }

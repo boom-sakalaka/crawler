@@ -30,5 +30,5 @@ class Crowller {
 }
 const secret = "secretKey";
 const url = `http://www.dell-lee.com/typescript/demo.html?secret=${secret}`;
-const analyzer = new DellAnalyer();
+const analyzer = DellAnalyer.getInstance();
 const crowller = new Crowller(url, analyzer);
