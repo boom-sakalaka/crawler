@@ -43,6 +43,12 @@ var DellAnalyzer = /** @class */ (function () {
         var fileContent = this.generateJsonContent(courseInfo, filePath);
         return JSON.stringify(fileContent);
     };
+    DellAnalyzer.getInstance = function () {
+        if (!DellAnalyzer.intance) {
+            DellAnalyzer.intance = new DellAnalyzer();
+        }
+        return DellAnalyzer.intance;
+    };
     return DellAnalyzer;
 }());
 exports.default = DellAnalyzer;
