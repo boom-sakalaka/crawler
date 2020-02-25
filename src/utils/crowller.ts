@@ -2,14 +2,13 @@
 import fs from "fs";
 import path from "path";
 import superagent from "superagent";
-import DellAnalyer from "./dellAnalyzer";
 
 export interface Analyzer {
   analyzer: (html: string, filePath: string) => string;
 }
 
 class Crowller {
-  private filePath = path.resolve(__dirname, "../data/course.json");
+  private filePath = path.resolve(__dirname, "../../data/course.json");
 
   async getRawHtml() {
     const result = await superagent.get(this.url);
@@ -28,7 +27,5 @@ class Crowller {
     this.initSpiderProcess();
   }
 }
-const secret = "secretKey";
-const url = `http://www.dell-lee.com/typescript/demo.html?secret=${secret}`;
-const analyzer = new DellAnalyer();
-const crowller = new Crowller(url, analyzer);
+
+export default Crowller;
