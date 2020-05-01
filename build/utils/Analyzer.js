@@ -15,18 +15,15 @@ var DellAnalyzer = /** @class */ (function () {
         courseItems.map(function (index, element) {
             var descs = $(element).find(".course-desc");
             var title = descs.eq(0).text();
-            var count = parseInt(descs
-                .eq(1)
-                .text()
-                .split("：")[1], 10);
+            var count = parseInt(descs.eq(1).text().split("：")[1], 10);
             courseInfos.push({
                 title: title,
-                count: count
+                count: count,
             });
         });
         var result = {
             time: new Date().getTime(),
-            data: courseInfos
+            data: courseInfos,
         };
         return result;
     };

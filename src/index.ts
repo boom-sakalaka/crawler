@@ -1,7 +1,9 @@
 import express, { Request, Response, NextFunction } from "express";
 import bodyParset from "body-parser";
 import cookieSession from "cookie-session";
-import router from "./router";
+import "./controller/LoginController";
+import "./controller/CrowllerController";
+import { router } from "./router";
 
 const app = express();
 app.use(bodyParset.urlencoded({ extended: false }));
@@ -10,7 +12,7 @@ app.use(
     name: "session",
     keys: ["mykey"],
     // Cookie Options
-    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
   })
 );
 app.use((req: Request, res: Response, next: NextFunction) => {

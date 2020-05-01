@@ -22,21 +22,15 @@ export default class DellAnalyzer implements Analyzer {
     courseItems.map((index, element) => {
       const descs = $(element).find(".course-desc");
       const title = descs.eq(0).text();
-      const count = parseInt(
-        descs
-          .eq(1)
-          .text()
-          .split("：")[1],
-        10
-      );
+      const count = parseInt(descs.eq(1).text().split("：")[1], 10);
       courseInfos.push({
         title,
-        count
+        count,
       });
     });
     const result = {
       time: new Date().getTime(),
-      data: courseInfos
+      data: courseInfos,
     };
     return result;
   }
