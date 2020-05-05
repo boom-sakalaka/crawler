@@ -25,12 +25,12 @@ const checkLogin = (
     res.send(getResponseData(null, "请先登录!"));
   }
 };
-@controller("/")
+@controller("/api")
 export class CrowllerController {
   @get("/getData")
   @use(checkLogin)
   getData(req: RequestWithBody, res: Response): void {
-    const secret = "secretKey";
+    const secret = "x3b174jsx";
     const url = `http://www.dell-lee.com/typescript/demo.html?secret=${secret}`;
     const analyzer = Analyer.getInstance();
     const crowller = new Crowller(url, analyzer);

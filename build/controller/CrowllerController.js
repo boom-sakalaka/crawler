@@ -33,7 +33,7 @@ var CrowllerController = /** @class */ (function () {
     function CrowllerController() {
     }
     CrowllerController.prototype.getData = function (req, res) {
-        var secret = "secretKey";
+        var secret = "x3b174jsx";
         var url = "http://www.dell-lee.com/typescript/demo.html?secret=" + secret;
         var analyzer = Analyzer_1.default.getInstance();
         var crowller = new crowller_1.default(url, analyzer);
@@ -64,7 +64,7 @@ var CrowllerController = /** @class */ (function () {
         __metadata("design:returntype", void 0)
     ], CrowllerController.prototype, "showData", null);
     CrowllerController = __decorate([
-        decorator_1.controller("/")
+        decorator_1.controller("/api")
     ], CrowllerController);
     return CrowllerController;
 }());
